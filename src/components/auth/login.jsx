@@ -4,12 +4,14 @@ import { useState } from "react";
 const Login = () => {
     const [data, setData] = useState({});
     const handleChange = async (evt) => {
-        console.log(evt.target.value);
+
         setData({...data,[evt.target.name]:evt.target.value});
     }
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
-        login(data);
+        let res = await login(data).then(stats=>{
+            alert (stats);
+        });
     }   
     return(
         <>
@@ -27,7 +29,7 @@ const Login = () => {
                                                 <h1>KronumApp</h1>
                                                 <br/>
                                                 <div className="form-outline">
-                                                    <input name="email" className="form-control mb-4" id="loginName" type="email"  onChange={(evt)=>handleChange(evt)}/>
+                                                    <input name="username" className="form-control mb-4" id="loginName" type="email "  onChange={(evt)=>handleChange(evt)}/>
                                                     <label className="form-label" for="loginName">Email</label>
                                                     <div className="form-notch">
                                                         <div className="form-notch-leading"></div>
