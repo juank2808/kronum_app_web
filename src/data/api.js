@@ -4,8 +4,7 @@ const headers = {'Access-Control-Allow-Origin': "*",'Content-Type': 'application
 const login = async (data) => {
     data = JSON.stringify(data)
     const response = await axios.post('http://127.0.0.1:8000/api/v1/login',data,headers).then(res => {
-        console.log(res.status);
-
+        localStorage.setItem("token",res.data.access_token);
         return res.status;
     }).catch(err=>{
         console.log(err)
@@ -16,4 +15,4 @@ const login = async (data) => {
     // return response;
 }
 
-export {login};
+export { login };

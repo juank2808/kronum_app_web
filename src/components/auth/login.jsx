@@ -1,4 +1,5 @@
 
+import { Navigate } from "react-router-dom";
 import { login } from "../../data/api";
 import { useState } from "react";
 const Login = () => {
@@ -9,8 +10,9 @@ const Login = () => {
     }
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        let res = await login(data).then(stats=>{
-            alert (stats);
+        let res = await login(data).then(status=>{
+            if (status == 200)
+                window.location.replace('/team');
         });
     }   
     return(
