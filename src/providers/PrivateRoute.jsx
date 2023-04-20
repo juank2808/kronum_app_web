@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "../components/static/Navbar";
-import Team from "../components/Team";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const useAuth = () => {
