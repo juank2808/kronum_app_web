@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 const Navbar = (props) => {
     const logOut = () =>{
-        alert("CIERRA SESION");
+        localStorage.removeItem('token');
+        window.location.replace('/login');
     }
     return (
         <>
@@ -39,7 +40,7 @@ const Navbar = (props) => {
                     </div>
                     <div className="d-flex align-items-center">
                         <a className="text-reset me-3 " onClick={logOut}>
-                            <i class="fa-solid fa-power-off text-danger"></i>
+                            <i className="fa-solid fa-power-off text-danger"></i>
                         </a>
                     </div>
                 

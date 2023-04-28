@@ -14,5 +14,14 @@ const login = async (data) => {
     return response;
     // return response;
 }
+const getDataTeam = async (id_team) => {
+    const response = await axios.get(`http://127.0.0.1:8000/api/v1/team/team_attributes/${id_team.toString()}`).then(res => {
+        return res;
+    }).catch(error => {
+        return error;
+    });
 
-export { login };
+    return response;
+}
+
+export { login, getDataTeam };
